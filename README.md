@@ -40,7 +40,7 @@ Ověřeno 274 kombinací tras včetně všech položek z hlavního vchodu v obou
 
 ## GitHub Pages
 
-Projekt obsahuje hotový workflow `.github/workflows/pages.yml`. Nahrajte zdrojový projekt do svého repozitáře (větev `main`). V nastavení repozitáře vyberte **Pages → Source → GitHub Actions**. Workflow používá Node.js 24, sestaví web a publikuje jej přes oficiální GitHub Pages akce. Není potřeba ukládat žádný přístupový klíč.
+Projekt obsahuje hotový workflow `.github/workflows/static.yml`. Nahrajte zdrojový projekt do svého repozitáře (větev `main`). V nastavení repozitáře vyberte **Pages → Source → GitHub Actions**. Workflow používá Node.js 24, sestaví web a publikuje jej přes oficiální GitHub Pages akce. Není potřeba ukládat žádný přístupový klíč.
 
 Pro GitHub Pages se používá `npm run build:pages`, výstup je `dist/client`. Cesta repozitáře se automaticky převezme z nastavení Pages do `NEXT_PUBLIC_BASE_PATH`, takže funguje projektová adresa `/nazev-repozitare/` i vlastní doména. Lokálně ověřeno na `/fai-mapa/` včetně všech souborů, loga, hledání a navigace. Tento export používá stejnou React aplikaci jako náhled, bez požadavku na běžící server.
 
@@ -56,3 +56,10 @@ Na malých telefonech se po výpočtu trasy panel zmenší. Tlačítko Upravit z
 Interní poznámky o brožuře, sdílených plochách a neověřených označeních jsou pouze v tomto README a v `K-OVERENI.md`. Uživatelské rozhraní je nezobrazuje. Nečíslované neověřené položky nejsou ve vyhledávání ani v nabídce navigace; jejich plochy zůstávají zakreslené bez popisku.
 
 Produkční sestavení pro vlastní hosting i GitHub Pages nyní používá stejný statický export Vite. Na hostingu neběží Node.js ani serverové vykreslování. Po rozbalení ZIPu nahrajte obsah složky včetně skryté složky `.github` do svého repozitáře. V Settings → Pages zvolte GitHub Actions. Workflow se spustí při nahrání do větve main; poprvé jej lze spustit také ručně v Actions.
+
+
+## Aktualizace po auditu
+
+Mobilní panel má tři polohy: úzká lišta (88 px plus systémová bezpečná oblast), běžný panel a rozbalený seznam. Při otevření mapy je stažený dolů. Ovládá se tažením za úchyt, šipkami a tlačítky Hledat místnost / Navigace. Po výpočtu trasy se stáhne na lištu; vyhledávání a rozpracovaná trasa se při sbalení zachovají.
+
+Vstup do U53/107 je podle uživatelského potvrzení v levém horním rohu původního polygonu. Značka dveří je na souřadnici [129.33, 497.52], přístupový bod 13209 v přilehlé severní chodbě. Zvýšen kontrast pomocných textů a respektována volba omezení animací.

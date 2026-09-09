@@ -72,3 +72,27 @@ html,body{overscroll-behavior:none}.app{height:100dvh;min-height:0;overflow:hidd
 @media(max-width:700px){.topbar{gap:8px}.official-brand{flex:1;min-width:0;width:auto;max-width:min(63vw,280px)}.app-title,.info-button{flex:none}.app-title{margin-left:auto}}
 
 .map-room .room-hit.unknown{fill:#fbfcfc;stroke:#b9c6cd;cursor:grab}
+
+/* Mobile sheet: a minimal bar, a compact panel, and an expanded list. */
+.sheet-controls,.sheet-peek{display:none}
+@media(max-width:700px){
+ .sheet-controls{display:flex;height:32px;min-height:32px;align-items:center;flex:none}
+ .sheet-handle{height:32px;min-height:32px;flex:1;touch-action:none;cursor:ns-resize}
+ .sheet-handle>svg{top:7px;right:18px}
+ .sheet-expand{display:grid;place-items:center;height:32px;width:44px;flex:none;border:0;background:transparent;color:#536975;margin-right:6px;border-radius:10px}
+ .workspace .panel.minimized{height:calc(88px + env(safe-area-inset-bottom,0px));max-height:none;padding-bottom:env(safe-area-inset-bottom,0px)}
+ .panel.minimized>:not(.sheet-controls):not(.sheet-peek){display:none!important}
+ .panel.minimized .sheet-peek{display:flex;align-items:center;gap:8px;padding:0 14px 10px;height:56px;flex:none}
+ .sheet-peek button{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;border:0;border-radius:12px;background:#f1f4f5;color:#30454f;font-size:13px;font-weight:600;flex:1;padding:8px}
+ .sheet-peek button:last-child{background:#20313a;color:#fff;flex:0 0 auto;padding:8px 15px}
+ .workspace:has(.panel.minimized) .map-area.map-area{bottom:calc(88px + env(safe-area-inset-bottom,0px))}
+ .panel:not(.minimized){padding-bottom:env(safe-area-inset-bottom,0px)}
+}
+@media(prefers-reduced-motion:reduce){.panel,.map-area,.room-hit{transition:none}.route-motion{animation:none}}
+
+/* Legible secondary text without changing the faculty palette. */
+.address,.section-heading h2,.section-heading>span,.room-row small,.route-compact small,.panel-intro p,.panel-intro .eyebrow{color:#596b76}
+.journey-tabs [data-slot=tabs-trigger]:not([aria-selected=true]){color:#536772}
+.map-legend,.map-source,.map-caption,.map-interaction-hint,.floor-switch .eyebrow{color:#566d78}
+
+.eyebrow{color:#596b76}
