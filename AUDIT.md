@@ -42,16 +42,24 @@ Současný workflow sestavuje a publikuje web. Doplnit kontrolu jedinečnosti č
 
 ### 3. Zjednodušit zdroj a odlehčit první načtení
 
-Rozhraní a jeho stav jsou soustředěné v app/page.tsx. CSS obsahuje několik historických vrstev přepisování. Rozdělení na mapu, panel a navigaci sníží riziko dalších vizuálních regresí. Produkční JavaScript má přibližně 1,21 MB před kompresí, CSS 214 kB. Zvážit odložené načtení navigačního grafu až při první trase a odstranění nepoužívaných stylů a komponent; přínos ověřit měřením na pomalejším telefonu.
+Rozhraní a jeho stav jsou soustředěné v app/page.tsx. CSS obsahuje několik historických vrstev přepisování. Rozdělení na mapu, panel a navigaci sníží riziko dalších vizuálních regresí. Produkční JavaScript má přibližně 1,24 MB před kompresí (351 kB gzip), CSS 217 kB (35 kB gzip). Zvážit odložené načtení navigačního grafu až při první trase a odstranění nepoužívaných stylů a komponent; přínos ověřit měřením na pomalejším telefonu.
 
 ## Funkce s největším přínosem pro studenty
 
-1. **Odkaz přímo na místnost nebo trasu + QR kódy.** Odkaz otevře konkrétní cíl; QR u vchodu může rovnou nastavit začátek. Nyní se stav do adresy neukládá a obnovení stránky vrací výchozí mapu.
+1. **Odkaz přímo na místnost nebo trasu.** Odkaz otevře konkrétní cíl. Nyní se stav do adresy neukládá a obnovení stránky vrací výchozí mapu.
 2. **Uložená poslední trasa a oblíbené učebny.** Lokálně v telefonu, bez účtu. Obnovení stránky pak nepřeruší navigaci.
 3. **Offline mapa a přidání na plochu.** PWA s řízeným ukládáním dat a oznámením nové verze. Nyní chybí manifest i service worker; fungování po načtení bez sítě není totéž jako spolehlivé offline otevření.
 4. **Praktické pokyny na přechodech.** U schodiště či výtahu ukázat srozumitelnou orientační informaci nebo fotografii. Nejprve fyzicky ověřit přístupy a výtahy. Režim „Výtahem“ sám nepotvrzuje celou bezbariérovou cestu.
 5. **Volitelná lepší čitelnost.** Zachovat současný kompaktní vzhled a nabídnout větší popisky nebo zvýraznění vyhledané místnosti. Současné maximum 10 obrazových pixelů vychází z požadovaného vzhledu.
 
-Jako první produktové rozšíření doporučuji odkaz na místnost/trasu a navazující QR kódy. Rozvrhy, obsazenost místností a automatická poloha uvnitř budovy by vyžadovaly další spolehlivá data nebo infrastrukturu; pro tuto fázi mají vyšší náklady.
+QR kódy byly na přání uživatele vyřazeny. Funkční rozšíření nyní nejsou součástí zadání; přednost mají vzhled a orientace v mapě. Rozvrhy, obsazenost místností a automatická poloha uvnitř budovy by vyžadovaly další spolehlivá data nebo infrastrukturu; pro tuto fázi mají vyšší náklady.
 
 Přístupnost byla posuzována s oporou v [WCAG 2.2](https://www.w3.org/TR/WCAG22/) a [pravidlech velikosti ovládacích prvků](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum). Automatický test pokrývá jen část požadavků.
+
+## Navazující vizuální aktualizace – 10. 9. 2026
+
+Doplněn výrazný hlavní vchod se šipkou zdola nahoru, čitelné schody a výtahy, pokyn na přestupu nad trasou a nenápadné parkoviště. Pokyn funguje dotykem i klávesnicí. Ikony se navzájem oddělují a nepřekrývají označení WC. Recepce je dle upřesnění vlevo od vstupu; uživatel souhlasí, že ji není nutné zakreslovat.
+
+Dijkstra zůstává beze změny. Nové zjednodušování vykreslení odstranilo drobné zlomy při zachování chodeb a stěn. Kontrola 266 tras, 3 136 nových spojnic a 60 průniků stěnou prošla; nejpomalejší zjednodušení jednoho úseku na testovacím počítači trvalo 15 ms. V půdorysech se nic nepřesouvalo. Detailní princip je v README.
+
+Ověřeny rozměry 320 × 640, 390 × 844, 844 × 390 a 1440 × 1000, mobilní přestupy, přestupy klávesnicí, hledání, WC a sbalitelný panel. Dvě dříve méně kontrastní položky v desktopovém seznamu kroků byly ztmaveny. Testy nenahrazují kontrolu skutečné budovy ani fyzického iPhonu.

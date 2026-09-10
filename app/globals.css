@@ -96,3 +96,49 @@ html,body{overscroll-behavior:none}.app{height:100dvh;min-height:0;overflow:hidd
 .map-legend,.map-source,.map-caption,.map-interaction-hint,.floor-switch .eyebrow{color:#566d78}
 
 .eyebrow{color:#596b76}
+
+/* Navigation landmarks stay readable at every zoom level. */
+.building-floor{fill:#f4f6f7;stroke:#8ea0aa;stroke-width:1.5}
+.building-depth{fill:#aab8bf;stroke:#aab8bf}
+.map-room .room-hit.classroom{fill:#ffe49a;stroke:#c3a75c}
+.map-room .room-hit.office{fill:#dce7f1;stroke:#a5bacb}
+.map-room .room-hit.hall{fill:#f7f9fa;stroke:#c6d0d5}
+.map-room .room-hit.wc{fill:#a9d6e7;stroke:#598fa8}
+.map-room .room-hit.active{fill:#ffcb18;stroke:#9b7300;stroke-width:2.4}
+.navigating .map-room:not(.route-endpoint):not(.is-selected) .room-hit.classroom{fill:#fff0c2;stroke:#d0bc7e}
+.navigating .map-room:not(.route-endpoint):not(.is-selected) .room-hit.office{fill:#e7eef5;stroke:#b6c7d5}
+.navigating .map-room:not(.route-endpoint):not(.is-selected) .room-code{fill:#61727b}
+.landmark-connector{pointer-events:visiblePainted}
+.landmark-connector .connector-outline{fill:#fff;stroke:#dce3e7;stroke-width:1}
+.landmark-connector .connector-symbol{fill:#344b59}
+.landmark-connector.elevator .connector-symbol{fill:#626599}
+.landmark-connector.is-route-transfer{cursor:pointer}
+.landmark-connector.is-route-transfer .connector-outline{stroke:#007d9b;stroke-width:2.5;fill:#eefbff}
+.landmark-connector .landmark-leader{fill:none;stroke:#526e7b;stroke-width:1.2}
+.transfer-label rect{fill:#fff;stroke:#007d9b;stroke-width:1.5}
+.transfer-label text{font:700 10px Arial,Helvetica,sans-serif;fill:#173f50;pointer-events:none}
+.transfer-label .transfer-subtitle{font-size:9px;font-weight:500;fill:#526c79}
+.main-entrance-marker{cursor:pointer}
+.main-entrance-marker .entrance-arrow-halo{fill:#fff;stroke:#fff;stroke-width:6;stroke-linejoin:round}
+.main-entrance-marker .entrance-arrow{fill:#176d4c;stroke:#176d4c;stroke-width:1;stroke-linejoin:round}
+.main-entrance-marker>rect{fill:#176d4c;stroke:white;stroke-width:2}
+.main-entrance-marker>text{font:700 11px Arial,Helvetica,sans-serif;fill:white;pointer-events:none}
+.main-entrance-marker:focus-visible>rect,.landmark-connector:focus-visible .connector-outline{stroke:#e9a700;stroke-width:3}
+.parking-context{pointer-events:none}
+.parking-context>rect{fill:#e5e9e9;fill-opacity:.72;stroke:#c4cece;stroke-width:1.3;stroke-dasharray:6 5}
+.parking-context>path{fill:none;stroke:#fff;stroke-width:2.5;opacity:.85}
+.parking-context .parking-sign{fill:#7b8f9b}
+.parking-context text{font:600 10px Arial,Helvetica,sans-serif;dominant-baseline:middle}
+.parking-context .parking-letter{fill:white;text-anchor:middle}
+.parking-context .parking-name{fill:#596f7b}
+.entry-locator{position:absolute;left:380px;top:65px;z-index:3;display:flex;align-items:center;gap:7px;min-height:36px;padding:8px 12px;border:2px solid white;border-radius:9px;background:#176d4c;color:white;font-size:12px;font-weight:700}
+.map-tools{box-shadow:0 3px 12px #233e4b0d;border-radius:11px}
+.floor-switch [data-slot=tabs-list]{box-shadow:0 3px 12px #29404c09}
+@media(max-width:1000px){.entry-locator{left:335px;top:20px}}
+@media(max-width:700px){.entry-locator{left:15px;top:74px;font-size:11px;min-height:33px}.map-tools{border-radius:10px}}
+
+.route-steps small{color:#526874}
+.transition-text{color:#006982}
+
+.legend-room{background:#ffe49a;border-color:#c3a75c}
+.legend-office{background:#a9d6e7;border-color:#598fa8}

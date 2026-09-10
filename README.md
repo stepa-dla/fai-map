@@ -63,3 +63,18 @@ Produkční sestavení pro vlastní hosting i GitHub Pages nyní používá stej
 Mobilní panel má tři polohy: úzká lišta (88 px plus systémová bezpečná oblast), běžný panel a rozbalený seznam. Při otevření mapy je stažený dolů. Ovládá se tažením za úchyt, šipkami a tlačítky Hledat místnost / Navigace. Po výpočtu trasy se stáhne na lištu; vyhledávání a rozpracovaná trasa se při sbalení zachovají.
 
 Vstup do U53/107 je podle uživatelského potvrzení v levém horním rohu původního polygonu. Značka dveří je na souřadnici [129.33, 497.52], přístupový bod 13209 v přilehlé severní chodbě. Zvýšen kontrast pomocných textů a respektována volba omezení animací.
+
+## Orientační značky a vykreslení tras (10. 9. 2026)
+
+Hlavní vchod v přízemí má zelenou šipku směřující zvenku nahoru do budovy a trvalý popisek. Pokud se při posunu mapy dostane mimo obraz, zůstane tlačítko pro jeho nalezení. Schody jsou tmavě modré, výtahy fialové a WC světle modrá. Značky se při oddálení nezmenšují, těsné páry výtahů se spojují a posunuté ikony mají vodicí čárku ke skutečné poloze.
+
+Přestupní značky leží nad trasou. Pokyn „Pokračuj do 1. patra“ znamená 2. NP; v opačném směru je uvedeno přízemí. Klepnutí na ikonu nebo pokyn přepne správné podlaží. Učebny mají sytější teplou žlutou, zázemí modrošedou a WC výraznější modrou; chodby zůstávají téměř bílé. Při navigaci jsou ostatní místnosti mírně barevně utlumené, jejich rozlišení však zůstává viditelné. Původní polygony a umístění WC se nemění.
+
+Parkoviště před budovou je pouze schematické orientační pozadí podle uživatelského zákresu. Neuvádí skutečný počet stání ani obsazenost a není cílem vnitřní navigace. Recepce je podle uživatele vlevo od hlavního vstupu; po dohodě není zakreslena, protože nemáme potvrzenou přesnou polohu.
+
+Výpočet trasy používá Dijkstrův algoritmus nad 15 441 uzly původního grafu. Hledá nejnižší součet vah hran pro zvolený režim schodů/výtahu; nejde o záruku geometricky nejkratší cesty volným prostorem. Vykreslení následně odstraňuje drobné zlomy pomocí omezeného Douglasova–Peuckerova zjednodušení s odchylkou nejvýše 18 jednotek mapy (necelé 2 m). Každá nová spojnice musí celá zůstat ve známých polygonech chodeb včetně otvorů a nesmí protnout ani kopírovat původní stěnu. Nejisté úseky zůstávají původní. Začátky, cíle, přestupy ani samotná volba trasy se touto úpravou nemění.
+
+- `lib/route-smoothing.ts`: kontrola průchodnosti a zjednodušení vykreslení.
+- `lib/route-barriers.json`: úsečky stěn převedené ze zdrojového digitálního layoutu do souřadnic mapy.
+
+Ověřeno 266 tras a 60 kontrol průniku stěnou, zachování koncových bodů a nejvyšší odchylky. 68 556 zdrojových bodů se pro kreslení zredukovalo na 5 407; 3 136 nových spojnic bylo také nezávisle vzorkováno uvnitř chodeb. Mobilní a desktopové testy zahrnují klepnutí i klávesnici na přestupech, zachování WC 6/6/2, hledání a panel ve čtyřech rozměrech displeje. Tyto kontroly potvrzují konzistenci mapových dat, nikoli skutečnou průchodnost budovy.
