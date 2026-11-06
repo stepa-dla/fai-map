@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-06T10:02:50.160Z",
+  "updatedAt": "2026-11-06T10:03:08.312Z",
   "events": {
     "u54-303": {
       "title": "Laboratoř PLC",
@@ -32,6 +32,10 @@
     },
     "u53-107": {
       "title": "Robotická laboratoř",
+      "endsAt": null
+    },
+    "u52-108": {
+      "title": "Laboratoř penetračního testování",
       "endsAt": null
     }
   }
