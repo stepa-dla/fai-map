@@ -19,6 +19,8 @@ Vyberte místnost klepnutím nebo hledáním. Tlačítko **Odtud** nastaví zač
 
 ## Úprava dat
 
+Dočasné názvy akcí lze nově upravovat přímo v mapě přes **i → Správa popisků akcí** nebo adresu `#sprava`. Editor ukládá soubor `public/room-events.json` do GitHubu a spustí stávající nasazení. Není potřeba další databáze. Popisky lze vyhledávat i použít při výběru cíle navigace; čísla učeben zůstávají zachovaná. Volitelný konec platnosti název automaticky skryje. Nastavení přístupu a ovládání popisuje [EDITOR.md](EDITOR.md).
+
 - `lib/fai-source-plan.json`: původní tvary, přiřazení čísel z brožury, cíle navigace, schodiště a výtahy.
 - `public/navigation.json`: původní síť navigačních bodů.
 - `lib/navigation.ts`: výpočet trasy a odvozená propojení výtahů.

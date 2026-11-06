@@ -11,7 +11,8 @@
     "start": "vite preview --config vite.pages.config.ts",
     "lint": "oxlint",
     "format": "oxfmt",
-    "build:pages": "vite build --config vite.pages.config.ts"
+    "build:pages": "vite build --config vite.pages.config.ts",
+    "test:events": "node --test tests/events.test.cjs"
   },
   "dependencies": {
     "react": "19.2.6",
