@@ -1,9 +1,13 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-06T10:00:10.633Z",
+  "updatedAt": "2026-11-06T10:00:38.264Z",
   "events": {
     "u54-303": {
       "title": "Laboratoř PLC",
+      "endsAt": null
+    },
+    "u53-308": {
+      "title": "Laboratoř řízených procesů",
       "endsAt": null
     }
   }
