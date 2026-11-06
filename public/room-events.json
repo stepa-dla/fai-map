@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-06T10:01:42.047Z",
+  "updatedAt": "2026-11-06T10:02:00.575Z",
   "events": {
     "u54-303": {
       "title": "Laboratoř PLC",
@@ -20,6 +20,10 @@
     },
     "u54-212": {
       "title": "Laboratoř umělé inteligence",
+      "endsAt": null
+    },
+    "u54-213": {
+      "title": "Laboratoř kriminalistiky",
       "endsAt": null
     }
   }
